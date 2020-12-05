@@ -14,15 +14,6 @@ func readFile(filename string) []string {
 	return strings.Split(txt, "\n\n")
 }
 
-func isValidPassportPart1(passport string) bool {
-	for _, field := range []string{"byr:", "iyr:", "eyr:", "hgt:", "hcl:", "ecl:", "pid:"} {
-		if !strings.Contains(passport, field) {
-			return false
-		}
-	}
-	return true
-}
-
 func isValidByr(value string) bool {
 	intValue, _ := strconv.Atoi(value)
 	if intValue < 1920 || intValue > 2002 {
@@ -110,6 +101,15 @@ func isValidField(field, value string) bool {
 func splitField(s string) (string, string) {
 	x := strings.Split(s, ":")
 	return x[0], x[1]
+}
+
+func isValidPassportPart1(passport string) bool {
+	for _, field := range []string{"byr:", "iyr:", "eyr:", "hgt:", "hcl:", "ecl:", "pid:"} {
+		if !strings.Contains(passport, field) {
+			return false
+		}
+	}
+	return true
 }
 
 func isValidPassportPart2(passport string) bool {

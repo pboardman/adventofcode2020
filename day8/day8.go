@@ -119,7 +119,6 @@ func part2(instructions []string) {
 				return
 			}
 		}
-		// fmt.Printf("instructionsChanged: %v\n", instructionsChanged)
 	}
 }
 
